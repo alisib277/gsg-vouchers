@@ -26,8 +26,8 @@
         <label for="email" class="block text-sm font-medium text-gray-700">Code</label>
         <div class="mt-1">
           <input type="text" name="email" id="email"
-                 class="block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                 v-model="voucher.code">
+                 class="block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-transform: uppercase"
+                 v-model="voucher.code" v-on:change="voucher.code = voucher.code.toUpperCase()">
         </div>
       </div>
 
