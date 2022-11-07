@@ -6,7 +6,7 @@ import EditVoucher from '../Components/Vouchers/EditVoucher.vue';
 
 const routes = [
     {
-        path: '/dashboard',
+        path: '/',
         name: 'vouchers.index',
         component: VoucherIndex
     },
