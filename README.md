@@ -1,5 +1,14 @@
+<p align="center"><img src="http://alisiba.com/voucher_si2.gif" width="900" alt="voucher Gif">
+</p>
+
 <p align="center"><img src="http://alisiba.com/voucher_si.gif" width="900" alt="voucher Gif">
 </p>
+
+## Update
+- Two attributes related to validity were added to *Vouchers* : ``` valid_from and valid_to```
+- Based on validity date, calculated attribute  ```Status``` will determine whether this Voucher is currently active or not
+- A new page where only active Vouchers are listed was added.
+- Pagination was added to the new active vouchers page.
 
 
 ## Vouchers full stack app

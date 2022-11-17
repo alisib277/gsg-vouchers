@@ -37,7 +37,7 @@ class VoucherController extends Controller
     public function onlyActive()
     {
         $today= Carbon::now()->format('Y-m-d');
-        $vouchers = Voucher::whereDate('valid_from','<=',$today)->whereDate('valid_to','>=',$today)->paginate(1);
+        $vouchers = Voucher::whereDate('valid_from','<=',$today)->whereDate('valid_to','>=',$today)->paginate(5);
 
         $data = [
             'vouchers' => VoucherResource::collection($vouchers),

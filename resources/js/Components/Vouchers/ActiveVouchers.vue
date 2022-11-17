@@ -26,6 +26,9 @@
           <span class="text-sm font-bold tracking-wider leading-4 text-gray-500 uppercase">Discount</span>
         </th>
         <th class="px-6 py-3 bg-gray-50">
+          <span class="text-sm font-bold tracking-wider leading-4  text-gray-500 uppercase">Validity</span>
+        </th>
+        <th class="px-6 py-3 bg-gray-50">
           <span class="text-sm font-bold tracking-wider leading-4  text-gray-500 uppercase">Status</span>
         </th>
       </tr>
@@ -42,6 +45,9 @@
           </td>
           <td class="px-6 py-3 text-sm leading-5 text-gray-900 whitespace-no-wrap">
             {{ voucher.discount }}
+          </td>
+          <td class="px-6 py-3 text-sm leading-5 text-gray-900 whitespace-no-wrap">
+            From {{ voucher.valid_from }}  <br>To {{ voucher.valid_to }}
           </td>
           <td class="px-6 py-3 text-sm leading-5 whitespace-no-wrap">
             <span  class="border-indigo-400 uppercase">  {{ voucher.status }}</span>

@@ -17,7 +17,7 @@ export default function useVouchers() {
     const getVouchers = async () => {
         let response = await axios.get('/api/vouchers/')
         vouchers.value = response.data.vouchers
-
+        
     }
 
     const showVoucher = async (id) => {

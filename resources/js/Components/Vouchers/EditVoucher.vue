@@ -30,22 +30,6 @@
                  v-model="voucher.code" v-on:change="voucher.code = voucher.code.toUpperCase()">
         </div>
       </div>
-      <div class="mt-1">
-        <label for="address" class="block text-sm font-medium text-gray-700">Valid from</label>
-        <div class="mt-1">
-          <input type="text" name="address" id="address"
-                 class="block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                 v-model="voucher.valid_from">
-        </div>
-      </div>
-      <div class="mt-1">
-        <label for="address" class="block text-sm font-medium text-gray-700">Valid to</label>
-        <div class="mt-1">
-          <input type="text" name="address" id="address"
-                 class="block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                 v-model="voucher.valid_to">
-        </div>
-      </div>
 
       <div class="mt-1">
         <label for="address" class="block text-sm font-medium text-gray-700">Discount</label>
