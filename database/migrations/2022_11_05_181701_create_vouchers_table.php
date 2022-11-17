@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('code')->unique();
             $table->string('name');
+            $table->date('valid_from')->nullable();
+            $table->date('valid_to')->nullable();
             $table->unsignedDouble('discount',4,2);
             $table->timestamps();
         });

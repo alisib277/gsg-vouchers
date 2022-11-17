@@ -20,7 +20,10 @@ class VoucherResource extends JsonResource
             'name' => $this->name ,
             'code' => $this->code,
             'discount' => $this->discount,
-            'created_at' =>  Carbon::parse($this->created_at)->format('M d Y'),
+            'valid_from' => Carbon::parse($this->valid_from)->format('Y-m-d'),
+            'valid_to' => Carbon::parse($this->valid_to)->format('Y-m-d'),
+            'status'=>Carbon::now()->gt($this->valid_from) && Carbon::now()->lt($this->valid_to)? 'Active': 'Inactive',
+            'created_at' =>  Carbon::parse($this->created_at)->format('Y-m-d'),
         ];
     }
 }

@@ -26,6 +26,8 @@ class StoreVoucherRequest extends FormRequest
         return [
             'code' => 'required|unique:vouchers,code',
             'name' => 'required|string',
+            'valid_from' => 'sometimes|date_format:Y-m-d',
+            'valid_to' => 'sometimes|date_format:Y-m-d',
             'discount' => 'required|numeric|between:0,100',
         ];
     }

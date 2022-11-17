@@ -6,12 +6,13 @@ use App\Http\Requests\StoreVoucherRequest;
 use App\Http\Requests\UpdateVoucherRequest;
 use App\Http\Resources\VoucherResource;
 use App\Models\Voucher;
+use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 
 class VoucherController extends Controller
 {
-    /**
+    protected const PAGE_LIMIT = 15;    /**
      * @return JsonResponse
      */
     public function index()
@@ -28,6 +29,29 @@ class VoucherController extends Controller
 
         return response()->json($data, Response::HTTP_OK);
 
+    }
+
+    /**
+     * @return JsonResponse
+     */
+    public function onlyActive()
+    {
+        $today= Carbon::now()->format('Y-m-d');
+        $vouchers = Voucher::whereDate('valid_from','<=',$today)->whereDate('valid_to','>=',$today)->paginate(1);
+
+        $data = [
+            'vouchers' => VoucherResource::collection($vouchers),
+            'pagination' => [
+                "current_page" => $vouchers->currentPage(),
+                "prev_page_url" =>  $vouchers->previousPageUrl(),
+                "next_page_url" =>  $vouchers->nextPageUrl(),
+                "last_page" =>  $vouchers->lastPage(),
+                "per_page" =>  $vouchers->perPage(),
+                "total" =>  $vouchers->total(),
+            ],
+
+        ];
+        return response()->json($data, Response::HTTP_OK);
     }
 
     /**

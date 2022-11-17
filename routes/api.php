@@ -15,4 +15,5 @@ use App\Http\Controllers\Api\VoucherController;
 |
 */
 
-Route::apiResource('vouchers', VoucherController::class);
+Route::get('vouchers/active/',[VoucherController::class, 'onlyActive']);
+Route::apiResource('vouchers/', VoucherController::class);

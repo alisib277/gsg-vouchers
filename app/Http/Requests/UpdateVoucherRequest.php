@@ -26,6 +26,8 @@ class UpdateVoucherRequest extends FormRequest
         return [
             'code' => 'sometimes|unique:vouchers,code',
             'name' => 'sometimes|string',
+            'valid_from' => 'sometimes|date_format:Y-m-d',
+            'valid_to' => 'sometimes|date_format:Y-m-d',
             'discount' => 'sometimes|numeric|between:0,100',
         ];
     }

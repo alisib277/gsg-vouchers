@@ -5,13 +5,19 @@ import { useRouter } from 'vue-router'
 export default function useVouchers() {
     const voucher = ref([])
     const vouchers = ref([])
-
+    const pagination = ref([])
     const errors = ref('')
     const router = useRouter()
 
-    const getVouchers = async () => {
-        let response = await axios.get('/api/vouchers')
+    const getActiveVouchers = async (page=1) => {
+        let response = await axios.get(`/api/vouchers/active/?page=${page}`)
         vouchers.value = response.data.vouchers
+        pagination.value = response.data.pagination
+    }
+    const getVouchers = async () => {
+        let response = await axios.get('/api/vouchers/')
+        vouchers.value = response.data.vouchers
+
     }
 
     const showVoucher = async (id) => {
@@ -55,7 +61,9 @@ export default function useVouchers() {
         errors,
         voucher,
         vouchers,
+        pagination,
         getVouchers,
+        getActiveVouchers,
         storeVoucher,
         showVoucher,
         updateVoucher,
